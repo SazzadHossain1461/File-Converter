@@ -1,11 +1,13 @@
-🔊 Simple Python Text-to-Speech (TTS) GUIThis is a straightforward, single-file Python application that converts text input into audible speech. It uses the Google Text-to-Speech library (gTTS) for high-quality audio generation and provides a simple Graphical User Interface (tkinter) for ease of use.✨ FeaturesGUI Interface: Easy-to-use window for inputting text.Audio Generation: Converts text into a clear MP3 file.Instant Playback: Automatically saves and plays the generated audio.🚀 Setup and InstallationThis project requires Python 3.x.1. Install DependenciesYou only need the gTTS library. The tkinter library is usually included with a standard Python installation.pip install gTTS
-2. Run the ApplicationSave the code (e.g., as tts_app.py).Run the file from your terminal:python tts_app.py
-3. UsageThe simple GUI window will appear.Type or paste the text you want to hear into the input field.Click the "Start" button.The application will generate the audio, save it as output.mp3 in the same directory, and immediately play the file using your system's default media player.💻 Code OverviewThe core functionality is contained within the texttoSpeech function, which handles fetching the text, calling gTTS, and using the os.system command for playback.# Function to handle TTS conversion and playback
-def texttoSpeech():
-    text = entry.get()
-    language = 'en'
-    output = gTTS(text=text, lang=language, slow=False)
-    # Saves the audio file
-    output.save("output.mp3")
-    # Plays the audio file (uses 'start' command on Windows)
-    os.system("start output.mp3")
+🖼️ Python Flask Image Converter SuiteThis project is a simple, web-based image converter application built using Python (Flask) for the backend processing and standard HTML/CSS/JavaScript for the frontend user interface. It provides a convenient, local tool for various common image file conversions.✨ FeaturesThe application supports the following one-click image conversions:JPG to PNGPNG to JPGWEBP to PNGBMP to PNGPNG to PDF⚠️ Note on ConversionsWhen converting JPG to PNG, the application adds transparency if the source image supports it (though JPG generally does not).When converting PNG to JPG, any existing transparency will be lost, as JPG does not support transparent layers.All frontend pages include a file size check, limiting uploads to 5MB to prevent slow processing.💻 TechnologiesBackend: Python (Flask)Image Processing: Pillow (PIL)Frontend: HTML, CSS, and vanilla JavaScript for file handling and API interaction.🚀 Setup and InstallationPrerequisitesYou must have Python 3.x installed on your system.1. Clone the Repositorygit clone <your-repo-link>
+cd <your-repo-name>
+2. Install DependenciesThe application relies on Flask for the web server and Pillow for image manipulation.pip install Flask Pillow
+3. Run the ServerStart the Flask development server by running the main application file (app.py).python app.py
+4. Access the ApplicationOnce the server is running, open your web browser and navigate to:[http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+The home page (index.html) will display a list of all available converters.📂 Project StructureThe project is structured into logical files to separate the web server, APIs, and the client-side interfaces..
+├── app.py              # Main Flask server and API endpoints (Python)
+├── index.html          # Homepage with links to all converters
+├── jpgtopng.html       # Frontend for JPG -> PNG conversion
+├── pngtojpg.html       # Frontend for PNG -> JPG conversion
+├── webptopng.html      # Frontend for WEBP -> PNG conversion
+├── bmptopng.html       # Frontend for BMP -> PNG conversion
+└── pngtopdf.html       # Frontend for PNG -> PDF conversion
